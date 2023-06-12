@@ -1,0 +1,39 @@
+import os
+import subprocess
+
+def create_project():
+    # Demander les détails du projet à l'utilisateur
+    project_name = input("Nom du projet : ")
+    language = input("Langage : ")
+    
+    # Créer un dossier pour le projet
+    os.makedirs(project_name)
+    os.chdir(project_name)
+    
+    # Initialiser le dépôt Git
+    subprocess.run(["git", "init"])
+    
+    # Créer le fichier README
+    with open("README.md", "w") as readme_file:
+        readme_file.write("# {}\n".format(project_name))
+    
+    # Créer le fichier Dockerfile
+    with open("Dockerfile", "w") as dockerfile:
+        dockerfile.write("# Dockerfile for {}\n".format(project_name))
+    
+    # Créer le fichier .env
+    with open(".env", "w") as env_file:
+        env_file.write("# Environment variables for {}\n".format(project_name))
+    
+    # Créer le fichier docker-compose.yml
+    with open("docker-compose.yml", "w") as compose_file:
+        compose_file.write("# Docker Compose configuration for {}\n".format(project_name))
+    
+    # Créer le fichier requirements.txt
+    with open("requirements.txt", "w") as requirements_file:
+        requirements_file.write("# Dependencies for {}\n".format(project_name))
+    
+    print("Le projet {} a été créé avec succès !".format(project_name))
+
+# Appeler la fonction pour créer le projet
+create_project()
