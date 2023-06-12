@@ -1,8 +1,6 @@
 # Automated_create_project
 un script qui me permettra de créer un projet et qui me demandera le nom du projet, le langage, créera un depot git et l'initialisera (s'il y a un moyen d'initialiser le git, créer un repository GitHub depuis le terminal), un README et un Dockerfile, un .env, un docker-compose-yml pour le projet et un requirements.txt
 
-Bien sûr ! Voici un exemple de README pour le script que nous avons créé :
-
 ```
 # Script de création de projet
 
@@ -52,7 +50,3 @@ pip install GitPython docker-compose
 Ce script est fourni tel quel, sans aucune garantie. Veuillez l'utiliser à vos propres risques. Assurez-vous de comprendre les implications de l'exécution de ce script avant de l'utiliser.
 
 ```
-
-Vous pouvez copier ce contenu dans un fichier `README.md` à la racine de votre projet. N'hésitez pas à le personnaliser selon vos besoins spécifiques.
-
-J'espère que cela vous convient ! Si vous avez d'autres questions, n'hésitez pas à demander.
