@@ -1,0 +1,44 @@
+import os
+import subprocess
+
+def create_project():
+    # Demander les détails du projet à l'utilisateur
+    project_name = input("Nom du projet : ")
+    language = input("Langage : ")
+    
+    # Créer un dossier pour le projet
+    os.makedirs(project_name)
+    os.chdir(project_name)
+    
+    # Initialiser le dépôt Git
+    subprocess.run(["git", "init"])
+    
+    # Créer le fichier README avec le contenu de base
+    readme_content = "# {}\n\nCeci est un projet {}.".format(project_name, language)
+    with open("README.md", "w") as readme_file:
+        readme_file.write(readme_content)
+    
+    # Créer le fichier Dockerfile avec le contenu de base
+    dockerfile_content = "# Dockerfile for {}\n\nFROM base_image\n\n# Add your instructions here".format(project_name)
+    with open("Dockerfile", "w") as dockerfile:
+        dockerfile.write(dockerfile_content)
+    
+    # Créer le fichier .env avec le contenu de base
+    env_content = "# Environment variables for {}\n\nVAR_NAME=value".format(project_name)
+    with open(".env", "w") as env_file:
+        env_file.write(env_content)
+    
+    # Créer le fichier docker-compose.yml avec le contenu de base
+    compose_content = "# Docker Compose configuration for {}\n\nversion: '3'\nservices:\n  app:\n    build:\n      context: .\n    ports:\n      - '8000:8000'".format(project_name)
+    with open("docker-compose.yml", "w") as compose_file:
+        compose_file.write(compose_content)
+    
+    # Créer le fichier requirements.txt avec le contenu de base
+    requirements_content = "# Dependencies for {}\n\npackage1\npackage2".format(project_name)
+    with open("requirements.txt", "w") as requirements_file:
+        requirements_file.write(requirements_content)
+    
+    print("Le projet {} a été créé avec succès !".format(project_name))
+
+# Appeler la fonction pour créer le projet
+create_project()
